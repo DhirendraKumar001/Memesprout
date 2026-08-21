@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemeSprout</title>
+    <meta name="description" content="MemeSprout is a social platform for sharing posts, following people, and joining the conversation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Applied before React mounts so there's no flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem("memesprout_theme") || "system";
+          var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var isDark = stored === "dark" || (stored === "system" && systemDark);
+          if (isDark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-ink">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
